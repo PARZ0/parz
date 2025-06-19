@@ -1,0 +1,310 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden; /* disables horizontal scroll */
+  overflow-y: auto;   /* enables vertical scroll */
+  position: relative;
+}
+
+body {
+  font-family: 'Helvetica Neue', sans-serif;
+  background-color: #e6d7bc;
+  overflow-x: hidden;
+}
+
+body {
+  transition: opacity 0.5s ease;
+  opacity: 1;
+}
+
+body.fade-out {
+  opacity: 0;
+}
+
+.container {
+  display: flex;
+  min-height: 100vh; /* ✅ Still full screen minimum, but can grow */
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.poster-section.top,
+.poster-section.middle,
+.poster-section.bottom {
+  opacity: 0; /* Start hidden */
+  animation: slideInFromLeft 0.8s ease-out forwards;
+}
+
+/* Optional: add delays for each */
+.poster-section.top h3 {
+  opacity: 0;
+  animation: slideInFromLeft 0.6s ease-out forwards;
+  animation-delay: 0.1s;
+}
+
+.poster-section.top img {
+  opacity: 0;
+  animation: slideInFromLeft 0.6s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+.poster-section.middle h1 {
+  opacity: 0;
+  animation: slideInFromLeft 0.6s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+.poster-subinfo {
+  opacity: 0;
+  animation: slideInFromLeft 0.6s ease-out forwards;
+  animation-delay: 0.4s;
+}
+
+.poster-description {
+  opacity: 0;
+  animation: slideInFromLeft 0.6s ease-out forwards;
+  animation-delay: 0.5s;
+}
+
+.poster-section.bottom img {
+  opacity: 0;
+  animation: slideInFromLeft 0.6s ease-out forwards;
+  animation-delay: 0.6s;
+}
+
+.poster-column {
+  width: 30%;
+  background-color: #f6f1e8;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* OPTIONAL, but may need to be removed */
+  gap: 20px;
+}
+
+.poster-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.poster-section.top h3 {
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  
+  
+}
+
+.poster-image {
+  width: 100%;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.poster-section.middle h1 {
+  font-size: 60px;
+  letter-spacing: 2px;
+  line-height: 1;
+}
+
+.poster-subinfo {
+  display: flex;
+  gap: 10px;
+  font-weight: bold;
+  margin: 10px 0;
+  font-size: 18px;
+  
+}
+
+.car-icon {
+  height: 30px;   /* Adjust size as needed */
+  width: auto;
+  vertical-align: middle; /* aligns nicely with text */
+}
+
+.poster-description {
+  font-family: 'Libre Baskerville', serif; /* or 'Cormorant Garamond' */
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  line-height: 1.7;
+  color: #2c2c2c;
+  text-align: justify;
+  text-justify: inter-word; /* forces better spacing */
+  hyphens: auto;
+}
+
+.background {
+  position: fixed;         /* stays in place while scrolling */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -1;             /* stays behind everything */
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center; /* center the visible part */
+  z-index: -1; /* stays behind everything */
+}
+
+.cart-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 28px;
+  color: #333;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 8px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  z-index: 10;
+  transition: background 0.3s ease;
+}
+
+.cart-button:hover {
+  background: rgba(255, 255, 255, 1);
+  color: #000;
+  cursor: pointer;
+}
+
+.poster-column {
+  width: 30%;
+  background-color: rgba(249, 241, 225, 0.85); /* semi-transparent */
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 30px;
+  margin-left: 30px; /* your desired gap */
+  z-index: 2;
+}
+
+.polaroid-section {
+  position: absolute;
+  top: 100px;
+  right: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  z-index: 3;
+}
+
+.polaroid {
+  background-color: white;
+  padding: 10px 10px 30px 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  width: 160px;
+  transform: rotate(-2deg);
+  transition: transform 0.3s ease;
+  border-radius: 4px;
+}
+
+.polaroid:nth-child(2) {
+  transform: rotate(2deg);
+}
+
+.polaroid:nth-child(3) {
+  transform: rotate(-1deg);
+}
+
+.polaroid:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.polaroid img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 3px;
+}
+
+.polaroid-link {
+  text-decoration: none; /* removes underline */
+  color: inherit;        /* keeps caption color */
+}
+
+.polaroid-link .caption {
+  text-decoration: none; /* extra safety */
+}
+
+.caption {
+  text-align: center;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 16px;
+  margin-top: 12px;
+  color: #222;
+  letter-spacing: 1px;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeOutToWhite {
+  0% {
+    opacity: 1;
+    background-color: #e6d7bc; /* your original background */
+  }
+  100% {
+    opacity: 0;
+    background-color: white;
+  }
+}
+
+.fade-out-to-white {
+  animation: fadeOutToWhite 1s forwards;
+}
+
+.cart-button, .instagram-button {
+  position: absolute;
+  top: 20px;
+  font-size: 28px;
+  color: #333;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 8px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  z-index: 10;
+  transition: background 0.3s ease;
+}
+
+.cart-button {
+  right: 20px;
+}
+
+.instagram-button {
+  right: 90px; 
+}
+
+.cart-button:hover, .instagram-button:hover {
+  background: rgba(255, 255, 255, 1);
+  color: #000;
+  cursor: pointer;
+}

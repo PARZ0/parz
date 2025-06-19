@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PARZ</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+  />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* Fade-out styles */
+    body {
+      opacity: 1;
+      transition: opacity 0.5s ease;
+    }
+    body.fade-out {
+      opacity: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="poster-column">
+      <div class="poster-section top">
+        <h3>Paradise Collection</h3>
+        <img src="Imagenes/firstPicture.jpg" alt="Top Image" class="poster-image"/>
+      </div>
+
+      <div class="poster-section middle">
+        <h1>P.A.R.Z.</h1>
+        <div class="poster-subinfo">
+          <span>DGH</span>
+          <span><img src="Imagenes/carIcon.png" alt="carIcon" class="car-icon"/></span>
+          <span>428</span>
+        </div>
+        <p class="poster-description">
+          Where style meets the road. Fuel your wardrobe with bold, car-inspired fashion. From classic muscle cars to sleek modern rides, our apparel is built for those who live life in the fast lane. Whether you're in the garage or on the streets, wear your passion with pride.
+        </p>
+      </div>
+
+      <div class="poster-section bottom">
+        <img src="Imagenes/secondPicture.jpg" alt="Second Image" class="poster-image"/>
+      </div>
+    </div>
+  </div>
+
+  <<div class="background">
+  <video autoplay muted loop playsinline class="background-video">
+    <source src="videos/background.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+<!-- Cart button -->
+<a href="cart.html" class="cart-button">
+  <i class="fas fa-shopping-cart"></i>
+</a>
+
+<!-- Instagram button next to cart -->
+<a href="https://www.instagram.com/p.a.r.z_/?utm_source=ig_web_button_share_sheet" target="_blank" rel="noopener" class="instagram-button">
+  <i class="fab fa-instagram"></i>
+</a>
+  
+  <div class="polaroid-section">
+    <a href="hoodie.html" class="polaroid-link">
+      <div class="polaroid">
+        <img src="Imagenes/hoodie.jpg" alt="Hoodies" />
+        <div class="caption">Hoodies</div>
+      </div>
+    </a>
+  
+    <a href="shirt.html" class="polaroid-link">
+      <div class="polaroid">
+        <img src="Imagenes/shirt.jpg" alt="Shirts" />
+        <div class="caption">Shirts</div>
+      </div>
+    </a>
+
+    <a href="collection.html" class="polaroid-link">
+      <div class="polaroid">
+        <img src="Imagenes/collection.jpg" alt="Collection" />
+        <div class="caption">Collection</div>
+      </div>
+    </a>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const polaroidLinks = document.querySelectorAll('.polaroid-link');
+      polaroidLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          document.body.classList.add('fade-out');
+          setTimeout(() => {
+            window.location.href = link.href;
+          }, 500); // match CSS transition duration
+        });
+      });
+    });
+  </script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const fadeDuration = 500;
+
+    // Fade on polaroid links
+    document.querySelectorAll('.polaroid-link').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        document.body.classList.add('fade-out-to-white');
+        setTimeout(() => {
+          window.location.href = link.href;
+        }, fadeDuration);
+      });
+    });
+
+    // Fade on cart icon click
+    const cartButton = document.querySelector('.cart-button');
+    if (cartButton) {
+      cartButton.addEventListener('click', e => {
+        e.preventDefault();
+        document.body.classList.add('fade-out-to-white');
+        setTimeout(() => {
+          window.location.href = cartButton.href;
+        }, fadeDuration);
+      });
+    }
+  });
+</script>
+
+</body>
+</html>

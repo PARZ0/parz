@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hoodies – PARZ</title>
+
+  <!-- Font Awesome for cart icon -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+  />
+
+  <!-- Your hoodie styles -->
+  <link rel="stylesheet" href="hoodie.css" />
+
+  <style>
+    /* Cart button styles (identical to main page) */
+    .cart-button {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 28px;
+      color: #333;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 8px 12px;
+      border-radius: 6px;
+      text-decoration: none;
+      z-index: 10;
+      transition: background 0.3s ease;
+    }
+
+    .cart-button:hover {
+      background: rgba(255, 255, 255, 1);
+      color: #000;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <!-- Cart Icon -->
+  <a href="cart.html" class="cart-button">
+    <i class="fas fa-shopping-cart"></i>
+  </a>
+  <a href="index.html" class="home-button">
+  <i class="fas fa-home"></i>
+</a>
+
+  <div class="page-wrapper">
+
+    <!-- Store background -->
+    <div class="store-section">
+      <img src="Imagenes/storeBackground.jpg" alt="Store Background" class="store-image" />
+      <div class="hoodie-layer">
+        <img src="Imagenes/hoodie1-cutout.png" alt="Hoodie 1" class="hoodie-item hoodie-1" data-id="1" />
+      </div>
+    </div>
+
+    <!-- Bottom section -->
+    <div class="selection-area" id="selectionArea">
+      <div id="instructions" class="instructions">
+        <p>Select a hoodie from the store above to see details here.</p>
+      </div>
+
+      <div id="previewContainer" class="preview-container" style="display: none;">
+        <div class="selected-hoodie-wrapper">
+          <img src="" alt="Selected Hoodie" class="selected-hoodie" id="selectedImage" />
+        </div>
+        <div class="hoodie-info">
+          <h2 class="hoodie-name" id="hoodieName"></h2>
+          <p class="hoodie-price" id="hoodiePrice">$0.00</p>
+          <button class="add-to-cart" id="addToCart" disabled>Add to Cart</button>
+        </div>
+        <div class="size-selection">
+  <label>
+    <input type="radio" name="size" value="S" checked /> Small
+  </label>
+  <label>
+    <input type="radio" name="size" value="M" /> Medium
+  </label>
+  <label>
+    <input type="radio" name="size" value="L" /> Large
+  </label>
+</div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="hoodie.js"></script>
+
+  <!-- Optional: fade-in effect -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.body.classList.add('fade-in');
+    });
+  </script>
+</body>
+</html>

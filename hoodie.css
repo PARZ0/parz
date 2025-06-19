@@ -1,0 +1,197 @@
+/* Page wrapper */
+.page-wrapper {
+  width: 100%;
+  overflow-x: hidden;
+  font-family: sans-serif;
+}
+
+body {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+body.fade-in {
+  opacity: 1;
+}
+
+/* Container for background + hoodie positioning */
+.store-section {
+  position: relative;
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.store-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Hoodie overlay layer */
+.hoodie-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Hoodie item with responsive positioning */
+.hoodie-item {
+  position: absolute;
+  width: 9.3%; /* scales with image */
+  pointer-events: auto;
+  transition: filter 0.3s ease;
+}
+
+.hoodie-item:hover {
+  filter: drop-shadow(0 0 10px #ffffff);
+}
+
+/* Example position for hoodie 1 */
+.hoodie-1 {
+  top: 6.75%;
+  left: 36%;
+}
+
+/* Preview section below */
+.selection-area {
+  display: none; /* will be shown on click */
+  width: 100%;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  background-color: rgba(255,255,255,0.95);
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.selected-hoodie-wrapper img {
+  max-width: 300px;
+  border-radius: 8px;
+}
+
+.hoodie-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.hoodie-price {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.hoodie-name {
+  font-size: 28px;
+  font-weight: 700;
+  color: #222;
+  margin: 0 0 10px 0;
+}
+
+.instructions {
+  font-size: 18px;
+  color: #555;
+  text-align: center;
+  width: 100%;
+  padding: 40px 0;
+  font-style: italic;
+}
+
+.add-to-cart {
+  padding: 10px 20px;
+  background-color: #000;
+  color: white;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.add-to-cart:hover {
+  background-color: #333;
+}
+
+.add-to-cart:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.cart-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 28px;
+  color: #333;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 8px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  z-index: 10;
+  transition: background 0.3s ease;
+}
+
+.cart-button:hover {
+  background: rgba(255, 255, 255, 1);
+  color: #000;
+  cursor: pointer;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.home-button {
+  position: absolute;
+  top: 20px;
+  right: 80px; /* push it to the left of the cart icon */
+  font-size: 28px;
+  color: #333;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 8px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  z-index: 10;
+  transition: background 0.3s ease;
+}
+
+.home-button:hover {
+  background: rgba(255, 255, 255, 1);
+  color: #000;
+  cursor: pointer;
+}
+
+.size-selection {
+  margin-top: 10px;
+  display: flex;
+  gap: 15px;
+}
+
+.size-selection label {
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+}
+
+.size-selection input[type="radio"] {
+  margin-right: 5px;
+  cursor: pointer;
+}
