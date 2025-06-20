@@ -41,7 +41,7 @@ body.fade-in {
 /* Hoodie item with responsive positioning */
 .hoodie-item {
   position: absolute;
-  width: 9.3%; /* scales with image */
+  width: 9.3%;
   pointer-events: auto;
   transition: filter 0.3s ease;
 }
@@ -58,7 +58,7 @@ body.fade-in {
 
 /* Preview section below */
 .selection-area {
-  display: none; /* will be shown on click */
+  display: none;
   width: 100%;
   max-width: 1200px;
   margin: 40px auto;
@@ -83,7 +83,8 @@ body.fade-in {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 20px;
+  gap: 15px;
+  margin-left: 40px; /* Adjust this value to how much you want it shifted */
 }
 
 .hoodie-price {
@@ -128,6 +129,7 @@ body.fade-in {
   opacity: 0.6;
 }
 
+/* Cart and home buttons */
 .cart-button {
   position: absolute;
   top: 20px;
@@ -148,21 +150,10 @@ body.fade-in {
   cursor: pointer;
 }
 
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 .home-button {
   position: absolute;
   top: 20px;
-  right: 80px; /* push it to the left of the cart icon */
+  right: 80px;
   font-size: 28px;
   color: #333;
   background: rgba(255, 255, 255, 0.8);
@@ -179,19 +170,70 @@ body.fade-in {
   cursor: pointer;
 }
 
+/* Size selection styles */
 .size-selection {
-  margin-top: 10px;
   display: flex;
-  gap: 15px;
-}
-
-.size-selection label {
-  font-weight: bold;
-  cursor: pointer;
-  user-select: none;
+  gap: 12px;
+  margin-top: 5px;
+  flex-wrap: wrap;
 }
 
 .size-selection input[type="radio"] {
-  margin-right: 5px;
+  display: none;
+}
+
+.size-selection label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  background-color: white;
+  font-weight: bold;
+  font-size: 16px;
   cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  user-select: none;
+}
+
+.size-selection input[type="radio"]:checked + label {
+  background-color: #333;
+  color: white;
+  border-color: #000;
+}
+
+.notification {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 16px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  z-index: 9999;
+}
+
+.notification.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+/* Animations */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

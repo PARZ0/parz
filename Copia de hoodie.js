@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const hoodieName = document.getElementById('hoodieName');
   const hoodiePrice = document.getElementById('hoodiePrice');
   const addToCartBtn = document.getElementById('addToCart');
+  const notification = document.getElementById('notification');
 
   const hoodieData = {
     1: {
@@ -55,12 +56,13 @@ document.addEventListener('DOMContentLoaded', () => {
   addToCartBtn.addEventListener('click', () => {
     if (!selectedHoodieId) return;
 
+    addToCartBtn.disabled = true;
+
     const data = hoodieData[selectedHoodieId];
     const selectedSize = document.querySelector('input[name="size"]:checked')?.value || 'S';
 
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-    // Check if same item + size exists, then increase qty
     const existingItem = cart.find(item => item.name === data.name && item.size === selectedSize);
 
     if (existingItem) {
@@ -76,6 +78,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     localStorage.setItem('cart', JSON.stringify(cart));
-    alert(`${data.name} (${selectedSize}) added to cart!`);
+
+    notification.textContent = `${data.name} (${selectedSize}) added to cart!`;
+    notification.style.display = 'block';
+
+    // Trigger fade-in
+    setTimeout(() => {
+      notification.classList.add('show');
+    }, 10);
+
+    // Fade out after 1.5s and re-enable button shortly after
+    setTimeout(() => {
+      notification.classList.remove('show');
+
+      setTimeout(() => {
+        notification.style.display = 'none';
+        addToCartBtn.disabled = false;
+      }, 500); // wait for fade-out transition
+    }, 1500);
   });
 });

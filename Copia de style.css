@@ -308,3 +308,77 @@ body.fade-out {
   color: #000;
   cursor: pointer;
 }
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .polaroid-section {
+    position: relative;
+    top: 0;
+    right: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 100px;
+    z-index: 3;
+  }
+
+  .polaroid {
+    width: 120px;
+    transform: none !important;
+  }
+
+  .caption {
+    font-size: 14px;
+  }
+
+  .poster-column {
+    width: 90%;
+    margin: 20px auto 0 auto;
+    padding: 20px;
+    background-color: rgba(249, 241, 225, 0.95);
+  }
+
+  .poster-section {
+    opacity: 1;
+    animation: none;
+  }
+
+  .poster-section.middle h1 {
+    font-size: 40px;
+  }
+
+  .poster-subinfo {
+    font-size: 16px;
+  }
+
+  .poster-description {
+    font-size: 14px;
+  }
+
+  .cart-button,
+  .instagram-button {
+    top: 10px;
+    font-size: 24px;
+    padding: 6px 10px;
+  }
+
+  .cart-button {
+    right: 10px;
+  }
+
+  .instagram-button {
+    right: 60px;
+  }
+
+  .background-video {
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+  }
+}

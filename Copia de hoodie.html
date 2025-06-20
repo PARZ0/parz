@@ -38,6 +38,7 @@
   </style>
 </head>
 <body>
+  <div id="notification" class="notification" style="display:none;"></div>
   <!-- Cart Icon -->
   <a href="cart.html" class="cart-button">
     <i class="fas fa-shopping-cart"></i>
@@ -68,20 +69,20 @@
         </div>
         <div class="hoodie-info">
           <h2 class="hoodie-name" id="hoodieName"></h2>
-          <p class="hoodie-price" id="hoodiePrice">$0.00</p>
-          <button class="add-to-cart" id="addToCart" disabled>Add to Cart</button>
-        </div>
-        <div class="size-selection">
-  <label>
-    <input type="radio" name="size" value="S" checked /> Small
-  </label>
-  <label>
-    <input type="radio" name="size" value="M" /> Medium
-  </label>
-  <label>
-    <input type="radio" name="size" value="L" /> Large
-  </label>
+          <div class="size-selection">
+  <input type="radio" id="size-s" name="size" value="S" checked />
+  <label for="size-s">S</label>
+
+  <input type="radio" id="size-m" name="size" value="M" />
+  <label for="size-m">M</label>
+
+  <input type="radio" id="size-l" name="size" value="L" />
+  <label for="size-l">L</label>
 </div>
+
+
+<p class="hoodie-price" id="hoodiePrice">$0.00</p>
+<button class="add-to-cart" id="addToCart" disabled>Add to Cart</button>
       </div>
     </div>
 
