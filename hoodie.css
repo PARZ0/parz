@@ -237,7 +237,6 @@ body.fade-in {
   }
 }
 
-/* Responsive adjustments for phones */
 @media (max-width: 768px) {
   .selection-area {
     flex-direction: column;
@@ -246,21 +245,24 @@ body.fade-in {
   }
 
   .selected-hoodie-wrapper img {
-    max-width: 90%;
+    max-width: 70%;
+    margin-bottom: 20px;
   }
 
   .hoodie-info {
     margin-left: 0;
     align-items: center;
+    gap: 10px;
+    padding: 0 10px;
   }
 
   .cart-button, .home-button {
     top: 10px;
-    font-size: 24px;
+    font-size: 26px;
     padding: 6px 10px;
   }
 
   .home-button {
-    right: 70px;
+    right: 60px;
   }
 }
