@@ -242,7 +242,7 @@ body {
   color: #333;
   background: white;
   padding: 10px 14px;
-  border-radius: 0; /* Changed from 50% to 0 to make square */
+  border-radius: 0;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   z-index: 100;
   text-decoration: none;
@@ -263,4 +263,62 @@ body {
 @keyframes popUp {
   from { transform: scale(0.8); opacity: 0; }
   to { transform: scale(1); opacity: 1; }
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+  body {
+    padding: 20px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cart-layout {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .receipt-wrapper {
+    width: 100%;
+    max-width: 95vw;
+    padding: 20px;
+  }
+
+  .polaroid-gallery {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    max-width: 100%;
+  }
+
+  .polaroid {
+    position: relative;
+    width: 140px;
+    margin-bottom: 20px;
+    transform: none !important;
+  }
+
+  .polaroid-stack {
+    width: auto;
+    height: auto;
+    padding-top: 0;
+  }
+
+  .receipt-title {
+    font-size: 18px;
+  }
+
+  .checkout-button {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .nav-buttons, .home-button {
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    padding: 6px 10px;
+  }
 }

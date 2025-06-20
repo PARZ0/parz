@@ -84,7 +84,7 @@ body.fade-in {
   flex-direction: column;
   justify-content: center;
   gap: 15px;
-  margin-left: 40px; /* Adjust this value to how much you want it shifted */
+  margin-left: 40px;
 }
 
 .hoodie-price {
@@ -225,7 +225,6 @@ body.fade-in {
   pointer-events: auto;
 }
 
-
 /* Animations */
 @keyframes fadeInUp {
   0% {
@@ -235,5 +234,33 @@ body.fade-in {
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments for phones */
+@media (max-width: 768px) {
+  .selection-area {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .selected-hoodie-wrapper img {
+    max-width: 90%;
+  }
+
+  .hoodie-info {
+    margin-left: 0;
+    align-items: center;
+  }
+
+  .cart-button, .home-button {
+    top: 10px;
+    font-size: 24px;
+    padding: 6px 10px;
+  }
+
+  .home-button {
+    right: 70px;
   }
 }
